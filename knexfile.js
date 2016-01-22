@@ -9,7 +9,7 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: process.env.2DATABASE_URL
+    connection: process.env.ADATABASE_URL
   }
 
 };
