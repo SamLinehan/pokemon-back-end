@@ -9,6 +9,8 @@ var dotenv = require('dotenv');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var teams = require('./routes/teams');
+var pokemon = require('./routes/pokemon');
+var moveSets = require('./routes/move-sets');
 
 var app = express();
 
@@ -29,6 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/teams', teams);
+app.use('/pokemon', pokemon);
+app.use('/move-sets', moveSets);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

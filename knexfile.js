@@ -12,6 +12,10 @@ module.exports = {
   production: {
     client: 'pg',
     connection: process.env.ADATABASE_URL
-  }
+  },
+
+  seeds: {
+  directory: './seeds'
+}
 
 };
