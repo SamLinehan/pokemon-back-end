@@ -4,11 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var dotenv = require('dotenv');
+var cors = require('cors');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var teams = require('./routes/teams');
+var pokemon = require('./routes/pokemon');
+var moveSets = require('./routes/move-sets');
 
 var app = express();
+
+dotenv.load();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,9 +28,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/teams', teams);
+app.use('/pokemon', pokemon);
+app.use('/move-sets', moveSets);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
